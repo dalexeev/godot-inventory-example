@@ -1,0 +1,14 @@
+,ru
+PLAYER_MENU_INVENTORY_USE,Использовать
+PLAYER_MENU_INVENTORY_DROP,Выбросить
+ITEM_EMPTY_NAME,[Пусто]
+ITEM_EMPTY_DESC,Пустая ячейка.
+ITEM_APPLE_NAME,Яблоко
+ITEM_APPLE_DESC,Восполняет 3 HP.
+ITEM_CHICKEN_NAME,Курица
+ITEM_CHICKEN_DESC,Восполняет 15 HP.
+ITEM_NOTE_NAME,Записка
+ITEM_NOTE_DESC,Какая-то записка.
+ITEM_SOUL_STONE_NAME,Камень души
+ITEM_SOUL_STONE_DESC,"Восполняет 25 HP (шанс 75%)
+или наносит урон 75 HP (шанс 25%)."

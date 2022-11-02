@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://fonts/noto_sans_bold.tres" type="DynamicFont" id=1]
+
+[node name="VBC" type="VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 192.0
+
+[node name="Items" type="ItemList" parent="."]
+unique_name_in_owner = true
+margin_right = 320.0
+margin_bottom = 116.0
+size_flags_vertical = 3
+max_columns = 0
+icon_mode = 0
+
+[node name="MC" type="MarginContainer" parent="."]
+margin_top = 120.0
+margin_right = 320.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 0, 72 )
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+
+[node name="HBC" type="HBoxContainer" parent="MC"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 316.0
+margin_bottom = 72.0
+
+[node name="VBC" type="VBoxContainer" parent="MC/HBC"]
+margin_right = 212.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="MC/HBC/VBC"]
+unique_name_in_owner = true
+margin_right = 212.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "Name"
+
+[node name="ItemDesc" type="RichTextLabel" parent="MC/HBC/VBC"]
+unique_name_in_owner = true
+margin_top = 24.0
+margin_right = 212.0
+margin_bottom = 68.0
+size_flags_vertical = 3
+text = "Description"
+
+[node name="Buttons" type="VBoxContainer" parent="MC/HBC"]
+unique_name_in_owner = true
+margin_left = 216.0
+margin_right = 312.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 96, 0 )
+
+[node name="Button1" type="Button" parent="MC/HBC/Buttons"]
+margin_right = 96.0
+margin_bottom = 26.0
+text = "Button 1"
+
+[node name="Button2" type="Button" parent="MC/HBC/Buttons"]
+margin_top = 30.0
+margin_right = 96.0
+margin_bottom = 56.0
+text = "Button 2"
