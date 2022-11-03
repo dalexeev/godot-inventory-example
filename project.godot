@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/item_storage.gd"
 }, {
-"base": "Control",
+"base": "VBoxContainer",
 "class": "ItemStorageControl",
 "language": "GDScript",
 "path": "res://ui/item_storage_control.gd"

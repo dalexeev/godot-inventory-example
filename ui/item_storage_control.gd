@@ -1,6 +1,10 @@
-extends Control
+extends VBoxContainer
 class_name ItemStorageControl
 ## Элемент управления для взаимодействия с хранилищем предметов.
+##
+## Примечание: Для создания экземпляра данного класса используйте статический
+## метод instance() вместо new().
+## Подробнее: https://github.com/godotengine/godot-proposals/issues/1935.
 
 ## Хранилище предметов.
 var storage: ItemStorage setget set_storage
@@ -13,20 +17,23 @@ var _buttons: VBoxContainer
 ## Излучается при возможной смене выбранного предмета или снятии выделения.
 signal item_selected()
 
-func _init() -> void:
-	var body: VBoxContainer = preload('res://ui/item_storage_control.tscn').instance()
-	body.set_anchors_and_margins_preset(PRESET_WIDE, PRESET_MODE_MINSIZE, 8)
-	add_child(body)
-	
-	_items = body.get_node('%Items')
-	_item_name = body.get_node('%ItemName')
-	_item_desc = body.get_node('%ItemDesc')
-	_buttons = body.get_node('%Buttons')
-	
-	_items.connect('item_selected', self, '_on_items_item_selected')
-	_item_name.text = ''
-	_item_desc.text = ''
-	clear_buttons()
+## Инстанцирует сцену ItemStorageControl.
+static func instance() -> VBoxContainer: # ItemStorageControl
+	return load('res://ui/item_storage_control.tscn').instance()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_INSTANCED:
+		# Вместо onready-переменных. Нужно чтобы методы, обращающиеся к узлам
+		# сцены (такие как add_button() и clear_buttons()), могли корректно
+		# работать до вставки в дерево сцены и события ready.
+		_items = $'%Items'
+		_item_name = $'%ItemName'
+		_item_desc = $'%ItemDesc'
+		_buttons = $'%Buttons'
+		
+		_item_name.text = ''
+		_item_desc.text = ''
+		clear_buttons()
 
 ## Задаёт хранилище предметов.
 func set_storage(value: ItemStorage) -> void:

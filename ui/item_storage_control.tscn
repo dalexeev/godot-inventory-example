@@ -1,68 +1,66 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://fonts/noto_sans_bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/item_storage_control.gd" type="Script" id=2]
 
-[node name="VBC" type="VBoxContainer"]
+[node name="ItemStorageControl" type="VBoxContainer"]
 margin_right = 320.0
 margin_bottom = 192.0
+script = ExtResource( 2 )
 
 [node name="Items" type="ItemList" parent="."]
 unique_name_in_owner = true
 margin_right = 320.0
-margin_bottom = 116.0
+margin_bottom = 122.0
 size_flags_vertical = 3
 max_columns = 0
 icon_mode = 0
 
-[node name="MC" type="MarginContainer" parent="."]
-margin_top = 120.0
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_top = 126.0
 margin_right = 320.0
 margin_bottom = 192.0
-rect_min_size = Vector2( 0, 72 )
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 4
+rect_min_size = Vector2( 0, 66 )
 
-[node name="HBC" type="HBoxContainer" parent="MC"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 316.0
-margin_bottom = 72.0
-
-[node name="VBC" type="VBoxContainer" parent="MC/HBC"]
-margin_right = 212.0
-margin_bottom = 68.0
+[node name="VBC" type="VBoxContainer" parent="HBC"]
+margin_right = 196.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 
-[node name="ItemName" type="Label" parent="MC/HBC/VBC"]
+[node name="ItemName" type="Label" parent="HBC/VBC"]
 unique_name_in_owner = true
-margin_right = 212.0
+margin_right = 196.0
 margin_bottom = 20.0
 custom_fonts/font = ExtResource( 1 )
 text = "Name"
 
-[node name="ItemDesc" type="RichTextLabel" parent="MC/HBC/VBC"]
+[node name="ItemDesc" type="RichTextLabel" parent="HBC/VBC"]
 unique_name_in_owner = true
 margin_top = 24.0
-margin_right = 212.0
-margin_bottom = 68.0
+margin_right = 196.0
+margin_bottom = 66.0
 size_flags_vertical = 3
-text = "Description"
+text = "Description
+Description"
 
-[node name="Buttons" type="VBoxContainer" parent="MC/HBC"]
+[node name="Buttons" type="VBoxContainer" parent="HBC"]
 unique_name_in_owner = true
-margin_left = 216.0
-margin_right = 312.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 96, 0 )
+margin_left = 200.0
+margin_right = 320.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 120, 0 )
+alignment = 1
 
-[node name="Button1" type="Button" parent="MC/HBC/Buttons"]
-margin_right = 96.0
-margin_bottom = 26.0
+[node name="Button1" type="Button" parent="HBC/Buttons"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 31.0
 text = "Button 1"
 
-[node name="Button2" type="Button" parent="MC/HBC/Buttons"]
-margin_top = 30.0
-margin_right = 96.0
-margin_bottom = 56.0
+[node name="Button2" type="Button" parent="HBC/Buttons"]
+margin_top = 35.0
+margin_right = 120.0
+margin_bottom = 61.0
 text = "Button 2"
+
+[connection signal="item_selected" from="Items" to="." method="_on_items_item_selected"]
