@@ -27,6 +27,6 @@ func is_usable() -> bool:
 func is_consumable() -> bool:
 	return true
 
-## Вызывается, когда character использует этот предмет.
+## Вызывается, когда персонаж использует этот предмет.
 func use(_character: KinematicBody2D) -> void: # _character: Character
 	pass

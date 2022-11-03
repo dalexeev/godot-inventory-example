@@ -10,5 +10,5 @@ ITEM_CHICKEN_DESC,Восполняет 15 HP.
 ITEM_NOTE_NAME,Записка
 ITEM_NOTE_DESC,Какая-то записка.
 ITEM_SOUL_STONE_NAME,Камень души
-ITEM_SOUL_STONE_DESC,"Восполняет 25 HP (шанс 75%)
-или наносит урон 75 HP (шанс 25%)."
+ITEM_SOUL_STONE_DESC,"Восполняет 25 HP (шанс 75%) или наносит
+урон 75 HP (шанс 25%). Не расходуется."

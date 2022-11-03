@@ -10,5 +10,5 @@ var CHICKEN := preload('db/chicken.gd').new()
 ## Записка.
 var NOTE := preload('db/note.gd').new()
 
-## Записка.
+## Камень души.
 var SOUL_STONE := preload('db/soul_stone.gd').new()

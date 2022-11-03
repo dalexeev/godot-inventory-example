@@ -34,7 +34,9 @@ func set_storage(value: ItemStorage) -> void:
 		storage.disconnect('changed', self, '_update_items')
 	
 	storage = value
-	storage.connect('changed', self, '_update_items')
+	if storage:
+		storage.connect('changed', self, '_update_items')
+	
 	_update_items()
 
 ## Добавляет кнопку в нижнее меню.
@@ -61,7 +63,7 @@ func get_selected_item_index() -> int:
 	return -1 if si.empty() else si[0]
 
 func _update_items() -> void:
-	var old_index := get_selected_item_index()
+	var index := get_selected_item_index()
 	
 	_items.clear()
 	
@@ -73,8 +75,8 @@ func _update_items() -> void:
 			else:
 				_items.add_icon_item(preload('res://items/db/empty.png'))
 	
-	if old_index != -1:
-		_items.select(old_index)
+	if 0 <= index && index < _items.get_item_count():
+		_items.select(index)
 	
 	_update_selected_item_info()
 	emit_signal('item_selected')
